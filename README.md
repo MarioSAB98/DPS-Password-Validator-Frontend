@@ -1,6 +1,6 @@
 # DPS Password Validator
 
-The front end is deployed [here](https://dps-password-validator-frontend.onrender.com/).
+The front end is deployed [here](https://dps-password-validator-frontend.onrender.com/)
 
 ## Front-End Setup
 
@@ -26,7 +26,7 @@ To run the front-end code locally, follow these steps:
    ```bash
    npm run dev
 
-This will start the development server, and you can access the application at http://localhost:5173/.
+This will start the development server, and you can access the application at http://localhost:5173/
 
 Important Note
 Please be aware that there is no home page in the application. The available routes are:
