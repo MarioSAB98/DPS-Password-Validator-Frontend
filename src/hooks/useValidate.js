@@ -3,7 +3,7 @@ import { validateLogin, validateSignup } from '../utils/validationSchema';
 export default function useValidate({ params, type }) {
 
     const [loading, setLoading] = React.useState(false);
-
+    const [success, setSuccess] = React.useState(false);
     const paramsRef = React.useRef({ ...params });
     const [errs, setErrs] = React.useState({});
 
@@ -69,6 +69,7 @@ export default function useValidate({ params, type }) {
     };
 
     const submit = async () => {
+        setSuccess(false);
         const response = await fetch(import.meta.env.VITE_BASE_URL + `user/${type}`, {
             method: "POST",
             headers: {
@@ -85,7 +86,10 @@ export default function useValidate({ params, type }) {
 
         console.log('response:', response.json());
         setLoading(false);
+        if (response.status == 200 || response.status == 201) {
+            setSuccess(true)
+        }
     }
 
-    return { handleChange, handleSubmit, errs, loading };
+    return { handleChange, handleSubmit, errs, loading, success };
 }

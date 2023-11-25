@@ -1,10 +1,13 @@
 import Img from "/image.png"
 import useValidate from '../hooks/useValidate.js';
+import Confetti from 'react-confetti'
 
 export default function LoginPage() {
-    const { handleChange, handleSubmit, errs, loading } = useValidate({ params: { email: "", password: "" }, type: 'login' });
+    const { handleChange, handleSubmit, errs, loading, success } = useValidate({ params: { email: "", password: "" }, type: 'login' });
     return (
         <div className="flex flex-wrap h-full w-full bg-base">
+
+            {success && <Confetti recycle={false} numberOfPieces={400}></Confetti>}
 
             <div className="flex flex-col w-full md:w-1/2">
                 <div className="flex flex-col justify-center px-8 pt-8 my-auto md:justify-start md:pt-0 md:px-24 lg:px-32">
